@@ -4,26 +4,25 @@
  */
 package com.mycompany.mainframe;
 
-import java.awt.CardLayout;
 import java.awt.Color;
-import javax.swing.JPanel;
 
 /**
  *
  * @author isabe
  */
-public class FormPanel extends javax.swing.JFrame {
+public class ViewPanel extends javax.swing.JFrame {
 
     /**
      * Creates new form FormPanel
      */
-    private JPanel BottomPanel;
-    public FormPanel(javax.swing.JPanel InputPanel) {
+    private User NewUser;
+    public ViewPanel(com.mycompany.mainframe.User ViewPanel) {
         initComponents();
-        this.BottomPanel = InputPanel;
+        this.NewUser = ViewPanel;
+        populateData();
     }
 
-    private FormPanel() {
+    private ViewPanel() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -51,12 +50,11 @@ public class FormPanel extends javax.swing.JFrame {
         LastNameTextField = new javax.swing.JTextField();
         EmailLabel = new javax.swing.JLabel();
         EmailTextField = new javax.swing.JTextField();
-        SubmitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         UserFormLabel.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
-        UserFormLabel.setText("User Form");
+        UserFormLabel.setText("View Panel");
 
         FirstNameLabel.setText("First Name");
 
@@ -100,21 +98,10 @@ public class FormPanel extends javax.swing.JFrame {
             }
         });
 
-        SubmitButton.setText("Submit");
-        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(UserFormLabel)
-                .addGap(230, 230, 230))
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +117,6 @@ public class FormPanel extends javax.swing.JFrame {
                         .addContainerGap(80, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(SubmitButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(220, 220, 220)
@@ -152,6 +138,10 @@ public class FormPanel extends javax.swing.JFrame {
                                     .addComponent(FirstNameTextField)
                                     .addComponent(EmailTextField))))
                         .addGap(60, 60, 60))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UserFormLabel)
+                .addGap(243, 243, 243))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,9 +174,7 @@ public class FormPanel extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TypeLabel)
                     .addComponent(TypeDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(SubmitButton)
-                .addGap(21, 21, 21))
+                .addGap(76, 76, 76))
         );
 
         pack();
@@ -215,22 +203,6 @@ public class FormPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailTextFieldActionPerformed
 
-    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
-        // TODO add your handling code here:
-        User NewUser = new User();
-        NewUser.setFirstName(FirstNameTextField.getText());
-        NewUser.setLastName(LastNameTextField.getText());
-        NewUser.setEmail(EmailTextField.getText());
-        NewUser.setAge(AgeTextField.getText());
-        NewUser.setGender(GenderGroup.getSelection().getActionCommand());
-        NewUser.setType(TypeDropDown.getSelectedItem().toString());
-        
-        ViewPanel NewViewPanel = new ViewPanel(NewUser);
-        BottomPanel.add(NewViewPanel);
-        CardLayout layout = (CardLayout) BottomPanel.getLayout();
-        layout.next(BottomPanel);
-    }//GEN-LAST:event_SubmitButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -248,20 +220,21 @@ public class FormPanel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormPanel().setVisible(true);
+                new ViewPanel().setVisible(true);
             }
         });
     }
@@ -279,9 +252,13 @@ public class FormPanel extends javax.swing.JFrame {
     private javax.swing.JLabel LastNameLabel;
     private javax.swing.JTextField LastNameTextField;
     private javax.swing.JRadioButton MaleButton;
-    private javax.swing.JButton SubmitButton;
     private javax.swing.JComboBox<String> TypeDropDown;
     private javax.swing.JLabel TypeLabel;
     private javax.swing.JLabel UserFormLabel;
     // End of variables declaration//GEN-END:variables
+
+    private void populateData() {
+        FirstNameTextField.setText(this.NewUser.getFirstName());
+        LastNameTextField.setText(this.NewUser.getLastName());
+    }
 }
