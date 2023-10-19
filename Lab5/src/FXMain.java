@@ -1,46 +1,40 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
+ */
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-public class Test extends Application {
-
+/**
+ *
+ * @author isabe
+ */
+public class FXMain extends Application {
+    
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
         btn.setText("Save");
         btn.setOnAction(new EventHandler<ActionEvent>() {
-
+            
+           
             @Override
             public void handle(ActionEvent event) {
-
-                Parent pane = null;
-                try {
-                    pane = (Parent) FXMLLoader.load(getClass().getResource("SampleFXML.fxml"));
-                    primaryStage.getScene().setRoot(pane);
-                    System.out.println("Successfully Save");
-                } catch (IOException ex) {
-                    Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
+                System.out.println("Successfully Save");
             }
         });
-
+        
         StackPane root = new StackPane();
         root.getChildren().add(btn);
-
+        
         Scene scene = new Scene(root, 300, 250);
-
+        
         primaryStage.setTitle("Save");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -52,5 +46,5 @@ public class Test extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
 }
