@@ -10,12 +10,12 @@ import java.awt.CardLayout;
  *
  * @author isabe
  */
-public class MainFrame extends javax.swing.JPanel {
+public class MainFrame_1 extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    public MainFrame_1() {
         initComponents();
     }
 
@@ -96,11 +96,11 @@ public class MainFrame extends javax.swing.JPanel {
 
     private void FormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormButtonActionPerformed
         // TODO add your handling code here:
-        FormPanel NewFormPanel = new FormPanel(BottomPanel);
-        BottomPanel.add(NewFormPanel);
+        FormPanel_1 NewFormPanel_1 = new FormPanel_1(BottomPanel);
+        BottomPanel.add(NewFormPanel_1);
         CardLayout layout = (CardLayout) BottomPanel.getLayout();
         layout.next(BottomPanel); //39:23
-        //SplitPanel.setBottomComponent(newFormPanel);
+        //SplitPanel.setBottomComponent(newFormPanel_1);
     }//GEN-LAST:event_FormButtonActionPerformed
 
     private void ViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewButtonActionPerformed
@@ -128,20 +128,21 @@ public class MainFrame extends javax.swing.JPanel {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrame_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrame_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrame_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainFrame_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new MainFrame_1().setVisible(true);
             }
         });
     }
